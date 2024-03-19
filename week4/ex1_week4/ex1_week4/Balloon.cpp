@@ -2,17 +2,11 @@
 #include <cstring>
 #pragma warning (disable: 4996)
 
-void Balloon::init_(const char* color, unsigned int cost) {
-	strcpy(this->color,color);
-	this->cost = cost;
-}
-
 void Balloon::setCost(unsigned int cost) {
 	this->cost = cost;
 }
 
 void Balloon::setColor(const char* color) {
-	if (color)
 		strcpy(this->color, color);
 }
 

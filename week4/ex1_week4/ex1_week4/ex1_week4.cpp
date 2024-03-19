@@ -2,8 +2,7 @@
 
 int main()
 {
-    Balloon balloon;
-    balloon.init_("green", 3);
+    Balloon balloon("green", 3);
     balloon.printInfo();
     balloon.setColor("red");
     balloon.setCost(6);
