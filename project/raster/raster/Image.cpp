@@ -40,9 +40,24 @@ void Image::saveImage() {
     out << this->width << ' ' << this->height << '\n';
     out << this->max_pixel_value << '\n';
     for (int i = 0; i < this->pixels.size(); i++) {
-        out << this->pixels[i].pix[0] << ' ' << this->pixels[i].pix[1] << ' ' << this->pixels[i].pix[2] << ' ';
+        out << this->pixels[i].pix[0] << ' ' << this->pixels[i].pix[1] << ' ' << this->pixels[i].pix[2] << '\n';
     }
-   
-    
     out.close();
+}
+
+void Image::monochrome() {
+    for (int i = 0; i < this->pixels.size(); i++) {
+        unsigned short avgBrightness = 0;
+        avgBrightness = ((this->pixels[i].pix[0] + this->pixels[i].pix[1] + this->pixels[i].pix[2]) / 3);
+        if (avgBrightness < 255 / 2) {
+            this->pixels[i].pix[0] = 0;
+            this->pixels[i].pix[1] = 0;
+            this->pixels[i].pix[2] = 0;
+        }
+        else if (avgBrightness > 255 / 2) {
+            this->pixels[i].pix[0] = 255;
+            this->pixels[i].pix[1] = 255;
+            this->pixels[i].pix[2] = 255;
+        }
+    }
 }
