@@ -8,16 +8,18 @@
 
 int main()
 {
-    std::ifstream myFile("image.ppm");
+    std::ifstream myFile("sign.ppm");
     if (!myFile.is_open()) {
         std::cerr << "Problem with opening the file" << "\n";
         return -1;
     }
     Image image;
+    std::cout << "dsad";
     image.setDim(myFile);
     image.getDim();
-    image.print();
-    image.saveImage();
+    //+image.print();
+    //image.grayscale();
+    //image.saveImage();
     myFile.close();
    
 }
